@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class HomeListViewModel(private val repository: Repository) : ViewModel() {
 
     val movieDataResult = MutableLiveData<Resource<List<HomeItem>>>()
-
+    val tvShowDataResult = MutableLiveData<Resource<List<HomeItem>>>()
 
     fun getMovieData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -49,5 +49,35 @@ class HomeListViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
+    fun getTvShowData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            tvShowDataResult.postValue(Resource.Loading())
+            val onTheAirTvShow = repository.getTvShowOnTheAir()
+            val topRatedTvShow = repository.getTvShowTopRated()
+            val popularTvShow = repository.getTvShowPopular()
+            val homeItems = mutableListOf<HomeItem>()
+            homeItems.apply {
+                onTheAirTvShow.payload?.let {
+                    add(HomeItem.HomeHeaderTvShowItem(it.results.random()))
+                }
 
+                onTheAirTvShow.payload?.let {
+                    add(HomeItem.HomeSectionTvShowItem(R.string.on_air_tv_show, it.results))
+                }
+
+                topRatedTvShow.payload?.let {
+                    add(HomeItem.HomeSectionTvShowItem(R.string.top_rated_tv_show, it.results))
+                }
+
+                popularTvShow.payload?.let {
+                    add(HomeItem.HomeSectionTvShowItem(R.string.popular_movie, it.results))
+                }
+            }
+            if (homeItems.isNotEmpty()) {
+                tvShowDataResult.postValue(Resource.Success(homeItems))
+            } else {
+                tvShowDataResult.postValue(Resource.Empty())
+            }
+        }
+    }
 }
