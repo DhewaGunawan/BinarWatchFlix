@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_blue_600">
+    android:background="@color/dark_blue_600"
+    tools:context=".pkg.chat.ui.ChatActivity">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_empty_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="iv_empty_chat, tv_empty_chat_title, tv_empty_chat_description" />
+
+    <ImageView
+        android:id="@+id/iv_empty_chat"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/ic_empty_chat"
+        app:layout_constraintBottom_toTopOf="@+id/cl_input_chat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_empty_chat_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:gravity="center"
+        android:text="No messages yet.."
+        android:textColor="@color/off_white_400"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_empty_chat" />
+
+    <TextView
+        android:id="@+id/tv_empty_chat_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:fontFamily="@font/inter_medium"
+        android:gravity="center"
+        android:text="You don’t have any conversation yet. An interesting chat starts with you. Go on!"
+        android:textColor="@color/off_white_400"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_empty_chat_title" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_input_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/dark_blue_200"
