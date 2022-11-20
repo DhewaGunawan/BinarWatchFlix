@@ -7,10 +7,21 @@
     android:background="@color/dark_blue_600"
     tools:context=".pkg.chat.ui.ChatActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat_messages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/cl_input_chat"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="100"
+        tools:listitem="@layout/chat_message" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_empty_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="iv_empty_chat, tv_empty_chat_title, tv_empty_chat_description" />
 
     <ImageView
