@@ -7,6 +7,7 @@ import com.example.binarwatchflix.R
 import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
 import com.example.binarwatchflix.databinding.ActivityHomeBinding
+import com.example.binarwatchflix.pkg.chat.ui.ChatActivity
 import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -58,7 +59,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             }
 
             fabChat.setOnClickListener { view ->
-                Snackbar.make(view, "On Progress", Snackbar.LENGTH_LONG).show()
+                ChatActivity.startActivity(this@HomeActivity)
             }
 
             initViewPagerAdapter()
