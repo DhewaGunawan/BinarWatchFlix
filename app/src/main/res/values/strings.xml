@@ -7,12 +7,26 @@
     <string name="text_onboard_desc_2">Entertain yourself like never before in your life</string>
 
     <!-- || HOME ACTIVITY || -->
+
     <string name="home_activity_text_greeting_topbar">Hello,</string>
     <string name="logout_text">Are you sure you want to log out ?</string>
     <string name="lbl_yes">Yes</string>
     <string name="lbl_no">No</string>
 
     <!-- NAME OF FILTER LIST -->
+
     <string name="filter_movies">Movies</string>
     <string name="filter_tv_show">TV Shows</string>
+
+    <!-- || HOME LIST FRAGMENT || -->
+    <string name="upcoming_movie">Upcoming</string>
+    <string name="now_playing_movie">Now Playing</string>
+    <string name="popular_movie">Popular</string>
+    <string name="on_air_tv_show">On Air</string>
+    <string name="top_rated_tv_show">Top Rated</string>
+    <string name="popular_tv_show">Popular</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_empty_data">Empty Data</string>
 </resources>
