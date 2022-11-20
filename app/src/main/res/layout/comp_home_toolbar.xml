@@ -23,7 +23,7 @@
                 android:fontFamily="@font/inter_font"
                 android:text="@string/home_activity_text_greeting_topbar"
                 android:textColor="@color/off_white_400"
-                android:textSize="24sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/title_name"
@@ -33,18 +33,18 @@
                 android:fontFamily="@font/inter_font"
                 android:maxLines="1"
                 android:textColor="@color/off_white_400"
-                android:textSize="36sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 tools:text="Keanu!" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/btn_logout"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/bg_iv_sign_out"
-            android:padding="13dp"
+            android:padding="10dp"
             app:srcCompat="@drawable/ic_sign_out"
             app:tint="@color/grey_200"
             tools:ignore="ContentDescription" />
