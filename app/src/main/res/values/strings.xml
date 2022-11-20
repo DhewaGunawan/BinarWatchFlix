@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BinarWatchFlix</string>
+    <string name="loading">Loading</string>
+
+    <!-- || SPLASH & ONBOARDING ACTIVITY || -->
+    <string name="text_onboard_desc_1">One click away from your favorite movies and tv shows</string>
+    <string name="text_onboard_desc_2">Entertain yourself like never before in your life</string>
+
+    <!-- || HOME ACTIVITY || -->
+    <string name="home_activity_text_greeting_topbar">Hello,</string>
+    <string name="logout_text">Are you sure you want to log out ?</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
+
+    <!-- NAME OF FILTER LIST -->
+    <string name="filter_movies">Movies</string>
+    <string name="filter_tv_show">TV Shows</string>
+</resources>

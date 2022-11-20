@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BinarWatchFlix" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_blue_600</item>
+        <item name="colorPrimaryVariant">@color/dark_blue_200</item>
+        <item name="colorOnPrimary">@color/off_white_400</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/grey_600</item>
+        <item name="colorSecondaryVariant">@color/grey_400</item>
+        <item name="colorOnSecondary">@color/dark_blue_600</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Home.Tablayout" parent="TextAppearance.Design.Tab">
+        <item name="tabSelectedTextColor">@color/red_400</item>
+        <item name="tabTextColor">@color/grey_400</item>
+    </style>
+
+    <style name="Home.Tablayout.Text" parent="Base.Widget.Design.TabLayout">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>
