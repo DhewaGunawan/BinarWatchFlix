@@ -10,6 +10,7 @@ import com.example.binarwatchflix.databinding.ItemHeaderFilmBinding
 import com.example.binarwatchflix.databinding.ItemSectionFilmBinding
 import com.example.binarwatchflix.pkg.home.ui.uimodel.HOME_TYPE_HEADER
 import com.example.binarwatchflix.pkg.home.ui.uimodel.HomeItem
+import com.example.binarwatchflix.utils.Converter.splitYear
 
 class TvShowAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val data = mutableListOf<HomeItem>()
@@ -61,8 +62,9 @@ class HomeHeaderItemViewHolder(private val binding: ItemHeaderFilmBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: HomeItem.HomeHeaderTvShowItem) {
-        binding.ivHeaderAnime.load(CommonConstant.URL_IMAGE + item.data.posterPath)
-        binding.tvTitleAnime.text = item.data.tvShowTitle
+        binding.ivHeader.load(CommonConstant.URL_IMAGE + item.data.posterPath)
+        binding.tvTitle.text = item.data.tvShowTitle
+        binding.tvYear.text = splitYear(item.data.tvFirstAirDate)
     }
 
 }

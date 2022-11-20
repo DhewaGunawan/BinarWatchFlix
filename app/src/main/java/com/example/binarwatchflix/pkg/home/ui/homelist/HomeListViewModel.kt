@@ -4,9 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.binarwatchflix.R
-import com.example.binarwatchflix.data.model.Tmdb
 import com.example.binarwatchflix.data.network.api.Repository
-import com.example.binarwatchflix.data.network.api.response.movie.MoviesResponse
 import com.example.binarwatchflix.pkg.home.ui.uimodel.HomeItem
 import com.example.binarwatchflix.wrapper.Resource
 import kotlinx.coroutines.Dispatchers

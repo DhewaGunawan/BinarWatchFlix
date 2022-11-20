@@ -14,6 +14,9 @@ class TvShowList(
     @field:SerializedName("name")
     val tvShowTitle: String,
 
+    @field:SerializedName("first_air_date")
+    val tvFirstAirDate: String,
+
     @field:SerializedName("poster_path")
     val posterPath: String,
 )

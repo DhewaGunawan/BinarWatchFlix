@@ -14,6 +14,9 @@ class MovieList(
     @field:SerializedName("title")
     val movieTitle: String,
 
+    @field:SerializedName("release_date")
+    val movieReleaseDate: String,
+
     @field:SerializedName("poster_path")
     val posterPath: String,
 )

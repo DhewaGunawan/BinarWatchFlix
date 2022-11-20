@@ -1,7 +1,6 @@
 package com.example.binarwatchflix.pkg.home.ui.uimodel
 
 import androidx.annotation.StringRes
-import com.example.binarwatchflix.data.model.Tmdb
 import com.example.binarwatchflix.data.network.api.response.movie.MovieList
 import com.example.binarwatchflix.data.network.api.response.tvshow.TvShowList
 
