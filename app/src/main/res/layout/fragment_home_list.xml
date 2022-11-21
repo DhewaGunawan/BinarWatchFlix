@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:gravity="center"
+        android:fontFamily="@font/inter_font"
         android:textAlignment="center"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
