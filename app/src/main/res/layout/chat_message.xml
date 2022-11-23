@@ -16,7 +16,7 @@
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tv_message"
+        app:layout_constraintRight_toLeftOf="@id/tv_message_other_user"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView

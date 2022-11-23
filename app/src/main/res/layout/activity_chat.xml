@@ -72,6 +72,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_chat"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
