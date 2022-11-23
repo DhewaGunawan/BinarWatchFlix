@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue_600"
+    android:paddingHorizontal="32dp"
+    tools:context=".pkg.auth.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:id="@+id/tv_login_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semi_bold"
+            android:text="@string/text_create_account"
+            android:textAlignment="textStart"
+            android:textColor="@color/off_white_400"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/text_email"
+            android:textColorHint="@color/off_white_400"
+            app:boxStrokeColor="@color/text_input_layout_stroke_color"
+
+            app:boxStrokeWidth="2dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red_400"
+            app:hintTextColor="@color/yellow_400"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:paddingVertical="20dp"
+                android:textColor="@color/off_white_400"
+                android:textSize="14sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:hint="@string/text_password"
+            android:textColorHint="@color/off_white_400"
+            app:boxStrokeColor="@color/text_input_layout_stroke_color"
+
+            app:boxStrokeWidth="2dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red_400"
+            app:hintTextColor="@color/yellow_400"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/off_white_400">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:inputType="textPassword"
+                android:paddingVertical="20dp"
+
+                android:textColor="@color/off_white_400"
+                android:textSize="14sp"
+
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_repeat_password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:hint="@string/text_repeat_password"
+            android:textColorHint="@color/off_white_400"
+            app:boxStrokeColor="@color/text_input_layout_stroke_color"
+
+
+            app:boxStrokeWidth="2dp"
+            app:helperText=""
+            app:helperTextTextColor="@color/red_400"
+            app:hintTextColor="@color/yellow_400"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/off_white_400">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_repeat_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:inputType="textPassword"
+                android:paddingVertical="20dp"
+                android:textColor="@color/off_white_400"
+                android:textSize="14sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/red_400"
+            android:text="@string/text_sign_up_no_underline"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toBottomOf="@id/til_repeat_password" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_container_navigate_to_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/button_submit"
+            app:layout_constraintRight_toRightOf="@id/button_submit"
+            app:layout_constraintTop_toBottomOf="@+id/button_submit">
+
+
+            <TextView
+                android:id="@+id/tv_already_have_account_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_navigate_to_login"
+                android:textColor="@color/off_white_400" />
+
+            <TextView
+                android:id="@+id/tv_login_navigate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_login"
+                android:textColor="@color/off_white_400" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

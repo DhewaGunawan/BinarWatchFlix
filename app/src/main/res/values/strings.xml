@@ -15,4 +15,25 @@
     <!-- NAME OF FILTER LIST -->
     <string name="filter_movies">Movies</string>
     <string name="filter_tv_show">TV Shows</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_email">Email</string>
+    <string name="text_password">Password</string>
+    <string name="text_login_no_underline">Login</string>
+    <string name="text_login"><u>Login</u></string>
+    <string name="text_navigate_to_sign_up">Already have an account?</string>
+    <string name="text_sign_up"><u>Sign Up</u></string>
+    <string name="text_create_account">Create an account</string>
+    <string name="text_repeat_password">Repeat Password</string>
+    <string name="text_sign_up_no_underline">Sign Up</string>
+    <string name="text_navigate_to_login">Don\'t have an account?</string>
 </resources>
