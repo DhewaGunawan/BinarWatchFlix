@@ -3,14 +3,19 @@ package com.example.binarwatchflix.pkg.home.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.StringRes
+import androidx.viewpager2.widget.ViewPager2
 import com.example.binarwatchflix.R
 import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
 import com.example.binarwatchflix.databinding.ActivityHomeBinding
 import com.example.binarwatchflix.pkg.chat.ui.ChatActivity
+import com.example.binarwatchflix.pkg.home.adapter.HomeViewPagerAdapter
 import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate) {
     companion object {
@@ -23,6 +28,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         }
 
         private const val TAG = "HomeActivity"
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.filter_movies,
+            R.string.filter_tv_show,
+        )
     }
 
     private val dialogLogout by lazy {
@@ -69,7 +79,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
     }
 
     private fun initViewPagerAdapter() {
-
+        val homeViewPagerAdapter = HomeViewPagerAdapter(this)
+        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
+        viewPager.adapter = homeViewPagerAdapter
+        val tabs: TabLayout = findViewById(R.id.tab_layout)
+        TabLayoutMediator(tabs, viewPager) { tab, position ->
+            tab.text = resources.getString(TAB_TITLES[position])
+        }.attach()
+        supportActionBar?.elevation = 0f
     }
 
     fun refreshData() {
