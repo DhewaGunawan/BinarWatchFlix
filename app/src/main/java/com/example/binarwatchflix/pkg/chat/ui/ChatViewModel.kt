@@ -17,6 +17,10 @@ class ChatViewModel(
 
     val sendChatResult = MutableLiveData<Resource<Boolean>>()
 
+    fun getCurrentUser() = userRepository.getCurrentUser()
+
+    fun getAllChat() = chatRepository.getAllChat()
+
     fun sendChat(message: String) {
         sendChatResult.postValue(Resource.Loading())
         viewModelScope.launch(Dispatchers.IO) {
