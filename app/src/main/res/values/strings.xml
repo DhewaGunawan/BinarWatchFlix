@@ -26,6 +26,12 @@
     <string name="top_rated_tv_show">Top Rated</string>
     <string name="popular_tv_show">Popular</string>
 
+    <!-- CHAT -->
+    <string name="text_loading">Loading...</string>
+    <string name="text_empty_chat_title">No messages yet..</string>
+    <string name="text_empty_chat_description">You don’t have any conversation yet. An interesting chat starts with you. Go on!</string>
+    <string name="text_error_send_chat">Error when sending message :(</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_empty_data">Empty Data</string>
