@@ -6,61 +6,69 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.binarwatchflix.R
+import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
+import com.example.binarwatchflix.databinding.ActivitySplashScreenBinding
+import com.example.binarwatchflix.pkg.auth.AuthActivity
+import com.example.binarwatchflix.pkg.home.ui.HomeActivity
 import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
+import com.example.binarwatchflix.pkg.splashscreen.SplashViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@SuppressLint("CustomSplashScreen")
-class SplashScreenActivity : AppCompatActivity() {
-    companion object {
-        private const val TAG = "SplashScreenActivity"
-    }
 
-    private var timer: CountDownTimer? = null
+class SplashScreenActivity :
+    BaseActivity<ActivitySplashScreenBinding>(ActivitySplashScreenBinding::inflate) {
+
+    private val viewModel: SplashViewModel by viewModel()
+
     private val preference: UserPreference by lazy {
         UserPreference(this@SplashScreenActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        initView()
+        observeData()
+    }
+
+
+    private fun initView() {
         supportActionBar?.hide()
-        setTimerSplashScreen()
+        viewModel.getCurrentUser()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-        if (timer != null) {
-            timer?.cancel()
-            timer = null
-        }
-    }
-
-    private fun setTimerSplashScreen() {
-        timer = object : CountDownTimer(2000, 1000) {
-            override fun onTick(p0: Long) {}
-
-            override fun onFinish() {
-                Log.d(TAG, "onFinish: ${preference.isSkipIntro()}")
-                val destination =
-                    if (preference.isSkipIntro()) {
-                        if (preference.getUserToken() == "" || preference.getUserToken().isNullOrBlank())
-                            OnboardingActivity::class.java
-                        else
-                            OnboardingActivity::class.java
-                    } else {
-                        OnboardingActivity::class.java
+    private fun observeData() {
+        viewModel.currentUserLiveData.observe(this) { user ->
+            if (preference.isSkipIntro()) {
+                if (user == null) {
+                    lifecycleScope.launch {
+                        delay(2000)
+                        startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        })
                     }
-                val intent = Intent(this@SplashScreenActivity, destination)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
+                } else {
+                    lifecycleScope.launch {
+                        delay(2000)
+                        startActivity(Intent(this@SplashScreenActivity, HomeActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        })
+                    }
+                }
+            } else {
+                lifecycleScope.launch {
+                    delay(2000)
+                    startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    })
+                }
             }
+
         }
-
-        timer?.start()
     }
-
 
 }

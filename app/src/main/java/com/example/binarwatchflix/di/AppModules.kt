@@ -15,6 +15,7 @@ import com.example.binarwatchflix.pkg.auth.AuthViewModel
 import com.example.binarwatchflix.pkg.home.adapter.movie.MovieAdapter
 import com.example.binarwatchflix.pkg.home.adapter.tvshow.TvShowAdapter
 import com.example.binarwatchflix.pkg.home.ui.homelist.HomeListViewModel
+import com.example.binarwatchflix.pkg.splashscreen.SplashViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -53,6 +54,7 @@ object AppModules {
     private val viewModels = module {
         viewModel { HomeListViewModel(get()) }
         viewModelOf(::AuthViewModel)
+        viewModelOf(::SplashViewModel)
     }
 
     private val firebase = module {
