@@ -18,6 +18,8 @@ suspend fun <T> Task<T>.await(): T {
                 cont.resume(it.result, onCancellation = null)
             }
         }
+    }
+}
 
 @OptIn(ExperimentalCoroutinesApi::class)
 suspend fun DatabaseReference.setValueAsync(data: Any): Boolean {
