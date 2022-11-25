@@ -33,6 +33,7 @@ android {
             dimension = 'version'
             buildConfigField("String", "BASE_URL_TMDB", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"2017d4d7ede7db05ff036bb83d24de4c\"")
+            buildConfigField("String", "FIREBASE_WEB_CLIENT_ID", "\"1071891701486-3kjpvblssuhok1u8qolh0607rbckhm5g.apps.googleusercontent.com\"")
         }
     }
     compileOptions {
@@ -52,6 +53,7 @@ android {
 
 dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     def coroutine_version = "1.6.4"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
@@ -97,15 +99,17 @@ dependencies {
 
     implementation 'com.github.AppIntro:AppIntro:6.2.0'
 
+    //lottie
+    implementation 'com.airbnb.android:lottie:5.2.0'
+
     //firebase
     implementation platform('com.google.firebase:firebase-bom:31.0.3')
     implementation 'com.google.firebase:firebase-database-ktx'
-    implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
 
     // Firebase UI
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
     implementation 'com.firebaseui:firebase-ui-database:8.0.2'
-
     implementation 'com.google.android.gms:play-services-auth:20.3.0'
 }
