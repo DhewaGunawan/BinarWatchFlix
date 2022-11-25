@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.binarwatchflix.R
 import com.example.binarwatchflix.data.localpref.UserPreference
+import com.example.binarwatchflix.pkg.auth.AuthActivity
 import com.example.binarwatchflix.pkg.home.ui.HomeActivity
 import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroFragment
@@ -58,7 +59,7 @@ class OnboardingActivity : AppIntro2() {
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
         preference.setSkipIntro(true)
-        Intent(this@OnboardingActivity, HomeActivity::class.java).also {
+        Intent(this@OnboardingActivity, AuthActivity::class.java).also {
             startActivity(it)
         }
 

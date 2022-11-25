@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/dark_blue_600</item>
         <item name="colorPrimaryVariant">@color/dark_blue_200</item>
         <item name="colorOnPrimary">@color/off_white_400</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/grey_600</item>
         <item name="colorSecondaryVariant">@color/grey_400</item>
