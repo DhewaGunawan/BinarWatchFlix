@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.CircleCropTransformation
+import com.example.binarwatchflix.R
 import com.example.binarwatchflix.data.firebase.model.ChatMessage
 import com.example.binarwatchflix.data.firebase.model.User
 import com.example.binarwatchflix.databinding.ChatMessageBinding
@@ -36,17 +39,11 @@ class ChatListAdapter(
                 binding.groupOtherUserChat.isVisible = true
                 binding.tvMessageUser.isVisible = false
                 binding.tvMessageOtherUser.text = chat.message
-                binding.tvInitialName.text = getInitialName(chat)
-            }
-        }
-
-        fun getInitialName(chat: ChatMessage): String {
-            return chat.sender?.email.let {
-                val initial = it?.firstOrNull()
-                if (initial == null) {
-                    "?"
-                } else {
-                    initial.toString()
+                binding.ivChatPhoto.load(chat.sender?.photoProfileUrl) {
+                    crossfade(true)
+                    placeholder(R.drawable.ic_default_account)
+                    error(R.drawable.ic_default_account)
+                    transformations(CircleCropTransformation())
                 }
             }
         }

@@ -1,11 +1,10 @@
 package com.example.binarwatchflix.data.firebase.model
 
 import androidx.annotation.Keep
-import java.util.UUID
 
 @Keep
 data class ChatMessage(
-    val id: String = "${System.currentTimeMillis()}-${UUID.randomUUID()}",
+    var id: String = "",
     val sender: User? = null,
     val message: String = ""
 )

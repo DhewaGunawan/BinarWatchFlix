@@ -22,9 +22,9 @@ suspend fun <T> Task<T>.await(): T {
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
-suspend fun DatabaseReference.setValueAsync(data: Any): Boolean {
+suspend fun DatabaseReference.setValueAppendId(mapData: (id: String) -> Any): Boolean {
     return suspendCancellableCoroutine { cont ->
-        setValue(data)
+        setValue(mapData(key.toString()))
             .addOnCompleteListener {
                 cont.resume(true, onCancellation = null)
             }
