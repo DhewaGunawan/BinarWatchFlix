@@ -95,7 +95,58 @@
                 android:textSize="12sp"
                 tools:text="8.9" />
         </LinearLayout>
-
-
-
     </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="100dp"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:textColor="@color/off_white_400"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cd_rating"
+            app:layout_constraintStart_toEndOf="@+id/cd_rating"
+            app:layout_constraintTop_toTopOf="@id/cd_rating"
+            tools:text="2h 14m"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/ic_clock"
+            android:layout_marginStart="75dp"
+            app:layout_constraintBottom_toBottomOf="@id/cd_rating"
+            app:layout_constraintStart_toEndOf="@id/cd_rating"
+            app:layout_constraintTop_toTopOf="@id/cd_rating"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="32dp"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/off_white_400"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_poster_detail"
+            tools:text="Amsterdam "/>
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:padding="5dp"
+            android:textColor="@color/off_white_400"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="In the 1930s, three friends witness a murder, are framed for it, and uncover one of the most outrageous plots in American history."/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
