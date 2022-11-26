@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue_600">
+
+
+    <ImageView
+        android:id="@+id/iv_poster_detail"
+        android:layout_width="411dp"
+        android:layout_height="350dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder_poster"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_adult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="32dp"
+        android:backgroundTint="@color/grey_200"
+        app:layout_constraintTop_toBottomOf="@id/iv_poster_detail"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/tv_detail_adult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
+            android:textColor="@color/off_white_400"
+            android:textSize="12sp"
+            tools:text="18+" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/grey_200"
+        app:cardCornerRadius="4dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/cd_adult"
+        app:layout_constraintStart_toEndOf="@+id/cd_adult"
+        app:layout_constraintTop_toTopOf="@id/cd_adult">
+
+        <TextView
+            android:id="@+id/tv_detail_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:padding="4dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
+            android:textColor="@color/off_white_400"
+            android:textSize="12sp"
+            tools:text="Drama" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/grey_200"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cd_genre"
+        app:layout_constraintStart_toEndOf="@+id/cd_genre"
+        app:layout_constraintTop_toTopOf="@id/cd_genre">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="21dp"
+                android:layout_height="25dp"
+                app:srcCompat="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:fontFamily="@font/inter_font"
+                android:textColor="@color/off_white_400"
+                android:textSize="12sp"
+                tools:text="8.9" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="100dp"
+        android:padding="4dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_font"
+        android:textColor="@color/off_white_400"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cd_rating"
+        app:layout_constraintStart_toEndOf="@+id/cd_rating"
+        app:layout_constraintTop_toTopOf="@id/cd_rating"
+        tools:text="2h 14m"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/ic_clock"
+        android:layout_marginStart="75dp"
+        app:layout_constraintBottom_toBottomOf="@id/cd_rating"
+        app:layout_constraintStart_toEndOf="@id/cd_rating"
+        app:layout_constraintTop_toTopOf="@id/cd_rating"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="32dp"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/inter_font"
+        android:textColor="@color/off_white_400"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_poster_detail"
+        tools:text="Amsterdam "/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:padding="5dp"
+        android:fontFamily="@font/inter_font"
+        android:textColor="@color/off_white_400"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="In the 1930s, three friends witness a murder, are framed for it, and uncover one of the most outrageous plots in American history."/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
