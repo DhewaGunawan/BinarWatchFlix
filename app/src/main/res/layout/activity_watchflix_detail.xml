@@ -34,6 +34,7 @@
             android:layout_marginHorizontal="8dp"
             android:padding="4dp"
             android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
             android:textColor="@color/off_white_400"
             android:textSize="12sp"
             tools:text="18+" />
@@ -58,6 +59,7 @@
             android:layout_marginHorizontal="8dp"
             android:padding="4dp"
             android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
             android:textColor="@color/off_white_400"
             android:textSize="12sp"
             tools:text="Drama" />
@@ -91,6 +93,7 @@
                 android:layout_marginHorizontal="2dp"
                 android:padding="4dp"
                 android:textAlignment="center"
+                android:fontFamily="@font/inter_font"
                 android:textColor="@color/off_white_400"
                 android:textSize="12sp"
                 tools:text="8.9" />
@@ -104,6 +107,7 @@
             android:layout_marginHorizontal="100dp"
             android:padding="4dp"
             android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
             android:textColor="@color/off_white_400"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/cd_rating"
@@ -129,6 +133,7 @@
             android:layout_marginStart="32dp"
             android:padding="8dp"
             android:textAlignment="center"
+            android:fontFamily="@font/inter_font"
             android:textColor="@color/off_white_400"
             android:textSize="12dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,6 +148,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="32dp"
             android:padding="5dp"
+            android:fontFamily="@font/inter_font"
             android:textColor="@color/off_white_400"
             android:textSize="12dp"
             app:layout_constraintStart_toStartOf="parent"
