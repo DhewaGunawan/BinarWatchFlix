@@ -12,6 +12,9 @@ import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSource
 import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSourceImpl
 import com.example.binarwatchflix.data.network.api.service.TmdbApiService
 import com.example.binarwatchflix.pkg.auth.AuthViewModel
+import com.example.binarwatchflix.pkg.detail.adapter.CastAdapter
+import com.example.binarwatchflix.pkg.detail.adapter.GenreAdapter
+import com.example.binarwatchflix.pkg.detail.ui.DetailViewModel
 import com.example.binarwatchflix.pkg.home.adapter.movie.MovieAdapter
 import com.example.binarwatchflix.pkg.home.adapter.tvshow.TvShowAdapter
 import com.example.binarwatchflix.pkg.home.ui.homelist.HomeListViewModel
@@ -49,10 +52,13 @@ object AppModules {
         //jika dipanggil harus instance yang baru, bukan single instance
         factory { MovieAdapter()  }
         factory { TvShowAdapter()  }
+        factory { CastAdapter()  }
+        factory { GenreAdapter()  }
     }
 
     private val viewModels = module {
         viewModel { HomeListViewModel(get()) }
+        viewModel { params -> DetailViewModel(get(),params.get()) }
         viewModelOf(::AuthViewModel)
         viewModelOf(::SplashViewModel)
     }

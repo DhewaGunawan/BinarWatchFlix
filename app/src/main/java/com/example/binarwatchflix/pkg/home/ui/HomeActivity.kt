@@ -25,6 +25,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 putExtra(EXTRAS_NAME, name)
             })
         }
+        fun backToHomeActivity(context: Context) {
+            context.startActivity(Intent(context, HomeActivity::class.java).apply {
+            })
+
+        }
 
         private const val TAG = "HomeActivity"
         @StringRes
@@ -87,6 +92,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         }.attach()
         supportActionBar?.elevation = 0f
     }
+    private fun observeData() {
+
+    }
 
     fun refreshData() {
         initViewPagerAdapter()
@@ -100,9 +108,5 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
 
     private fun subscribeObserver() {
         observeData()
-    }
-
-    private fun observeData() {
-
     }
 }

@@ -8,6 +8,7 @@ import coil.load
 import com.example.binarwatchflix.constant.CommonConstant
 import com.example.binarwatchflix.databinding.ItemHeaderFilmBinding
 import com.example.binarwatchflix.databinding.ItemSectionFilmBinding
+import com.example.binarwatchflix.pkg.detail.ui.DetailMovie
 import com.example.binarwatchflix.pkg.home.ui.uimodel.HOME_TYPE_HEADER
 import com.example.binarwatchflix.pkg.home.ui.uimodel.HomeItem
 import com.example.binarwatchflix.utils.Converter.splitYear
@@ -74,7 +75,7 @@ class HomeSectionItemViewHolder(private val binding: ItemSectionFilmBinding) :
 
     private val adapter: MovieListAdapter by lazy {
         MovieListAdapter {
-           // AnimeDetailActivity.startActivity(itemView.context, it.animeId)
+            DetailMovie.startActivity(itemView.context, it.movieId.toString() , "movie")
         }
     }
 
