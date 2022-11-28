@@ -1,6 +1,8 @@
 package com.example.binarwatchflix.di
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.example.binarwatchflix.data.firebase.ChatDataSource
+import com.example.binarwatchflix.data.firebase.FirebaseChatDataSourceImpl
 import com.example.binarwatchflix.BuildConfig
 import com.example.binarwatchflix.data.firebase.FirebaseUserAuthDataSourceImpl
 import com.example.binarwatchflix.data.firebase.UserAuthDataSource
@@ -12,6 +14,9 @@ import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSource
 import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSourceImpl
 import com.example.binarwatchflix.data.network.api.service.TmdbApiService
 import com.example.binarwatchflix.pkg.auth.AuthViewModel
+import com.example.binarwatchflix.data.repository.ChatRepository
+import com.example.binarwatchflix.data.repository.ChatRepositoryImpl
+import com.example.binarwatchflix.pkg.chat.ui.ChatViewModel
 import com.example.binarwatchflix.pkg.home.adapter.movie.MovieAdapter
 import com.example.binarwatchflix.pkg.home.adapter.tvshow.TvShowAdapter
 import com.example.binarwatchflix.pkg.home.ui.homelist.HomeListViewModel
@@ -19,6 +24,8 @@ import com.example.binarwatchflix.pkg.splashscreen.SplashViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -38,11 +45,13 @@ object AppModules {
     private val dataSource = module {
         single<TmdbApiDataSource> { TmdbApiDataSourceImpl(get()) }
         single<UserAuthDataSource> { FirebaseUserAuthDataSourceImpl(get()) }
+        single<ChatDataSource> { FirebaseChatDataSourceImpl(get()) }
     }
 
     private val repository = module {
         single<Repository> { RepositoryImpl(get()) }
         single<UserRepository> { UserRepositoryImpl(get()) }
+        single<ChatRepository> { ChatRepositoryImpl(get()) }
     }
 
     private val adapter = module {
@@ -55,6 +64,7 @@ object AppModules {
         viewModel { HomeListViewModel(get()) }
         viewModelOf(::AuthViewModel)
         viewModelOf(::SplashViewModel)
+        viewModelOf(::ChatViewModel)
     }
 
     private val firebase = module {
@@ -67,5 +77,7 @@ object AppModules {
                     .build()
             )
         }
+        single { Firebase.database }
     }
+
 }

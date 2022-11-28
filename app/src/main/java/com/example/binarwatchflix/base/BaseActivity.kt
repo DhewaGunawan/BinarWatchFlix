@@ -3,6 +3,7 @@ package com.example.binarwatchflix.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
 open class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater) -> B) :
@@ -15,4 +16,10 @@ open class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater) ->
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
     }
+}
+
+abstract class BaseViewModelActivity<B : ViewBinding, VM : ViewModel>(bindingFactory: (LayoutInflater) -> B) :
+    BaseActivity<B>(bindingFactory) {
+
+    abstract val viewModel: VM
 }

@@ -6,6 +6,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resumeWithException
+import com.google.firebase.database.DatabaseReference
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 suspend fun <T> Task<T>.await(): T {
     return suspendCancellableCoroutine { cont ->
@@ -16,7 +18,22 @@ suspend fun <T> Task<T>.await(): T {
                 cont.resume(it.result, onCancellation = null)
             }
         }
+    }
+}
 
+@OptIn(ExperimentalCoroutinesApi::class)
+suspend fun DatabaseReference.setValueAppendId(mapData: (id: String) -> Any): Boolean {
+    return suspendCancellableCoroutine { cont ->
+        setValue(mapData(key.toString()))
+            .addOnCompleteListener {
+                cont.resume(true, onCancellation = null)
+            }
+            .addOnCanceledListener {
+                cont.resume(false, onCancellation = null)
+            }
+            .addOnFailureListener {
+                cont.resumeWithException(it)
+            }
     }
 }
 
