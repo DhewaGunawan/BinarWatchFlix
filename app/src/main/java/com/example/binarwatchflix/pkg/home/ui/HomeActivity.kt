@@ -10,10 +10,9 @@ import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
 import com.example.binarwatchflix.databinding.ActivityHomeBinding
 import com.example.binarwatchflix.pkg.auth.AuthActivity
+import com.example.binarwatchflix.pkg.auth.AuthViewModel
 import com.example.binarwatchflix.pkg.chat.ui.ChatActivity
-import com.example.binarwatchflix.pkg.home.HomeViewModel
 import com.example.binarwatchflix.pkg.home.adapter.HomeViewPagerAdapter
-import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -37,7 +36,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         )
     }
 
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel: AuthViewModel by viewModel()
 
     private val dialogLogout by lazy {
         MaterialAlertDialogBuilder(this@HomeActivity)
@@ -48,10 +47,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             .setPositiveButton(R.string.lbl_yes) { dialog, _ ->
                 logout()
                 dialog.dismiss()
-                preference.clearUserToken()
-                Intent(this@HomeActivity, OnboardingActivity::class.java).also {
-                    startActivity(it)
-                }
             }
     }
 

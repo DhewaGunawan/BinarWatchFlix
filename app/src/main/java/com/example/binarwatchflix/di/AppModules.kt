@@ -1,21 +1,16 @@
 package com.example.binarwatchflix.di
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.example.binarwatchflix.data.firebase.ChatDataSource
-import com.example.binarwatchflix.data.firebase.FirebaseChatDataSourceImpl
 import com.example.binarwatchflix.BuildConfig
-import com.example.binarwatchflix.data.firebase.FirebaseUserAuthDataSourceImpl
-import com.example.binarwatchflix.data.firebase.UserAuthDataSource
-import com.example.binarwatchflix.data.firebase.UserRepository
-import com.example.binarwatchflix.data.firebase.UserRepositoryImpl
+import com.example.binarwatchflix.data.firebase.*
 import com.example.binarwatchflix.data.network.api.Repository
 import com.example.binarwatchflix.data.network.api.RepositoryImpl
 import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSource
 import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSourceImpl
 import com.example.binarwatchflix.data.network.api.service.TmdbApiService
-import com.example.binarwatchflix.pkg.auth.AuthViewModel
 import com.example.binarwatchflix.data.repository.ChatRepository
 import com.example.binarwatchflix.data.repository.ChatRepositoryImpl
+import com.example.binarwatchflix.pkg.auth.AuthViewModel
 import com.example.binarwatchflix.pkg.chat.ui.ChatViewModel
 import com.example.binarwatchflix.pkg.home.adapter.movie.MovieAdapter
 import com.example.binarwatchflix.pkg.home.adapter.tvshow.TvShowAdapter
