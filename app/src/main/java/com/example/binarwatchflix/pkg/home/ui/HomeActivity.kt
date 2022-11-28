@@ -83,6 +83,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         val homeViewPagerAdapter = HomeViewPagerAdapter(this)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         viewPager.adapter = homeViewPagerAdapter
+        viewPager.isUserInputEnabled = false
         val tabs: TabLayout = findViewById(R.id.tab_layout)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
