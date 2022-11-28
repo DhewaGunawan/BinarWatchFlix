@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BinarWatchFlix"
         android:name=".App"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".pkg.splashscreen.ui.SplashScreenActivity"
