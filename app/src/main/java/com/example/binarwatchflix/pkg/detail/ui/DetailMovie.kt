@@ -21,6 +21,7 @@ import com.example.binarwatchflix.pkg.home.ui.HomeActivity
 import com.example.binarwatchflix.utils.Converter
 import com.example.binarwatchflix.utils.LoadingDialog
 import com.example.binarwatchflix.wrapper.Resource
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -31,7 +32,11 @@ class DetailMovie : BaseViewModelActivity<ActivityDetailMovieBinding, DetailView
     override val viewModel: DetailViewModel by viewModel {
         parametersOf(intent.extras ?: bundleOf())
     }
-    private val castAdapter : CastAdapter by inject()
+    private val castAdapter : CastAdapter by lazy{
+        CastAdapter{
+            Snackbar.make(binding.root, it.name, Snackbar.LENGTH_SHORT).show()
+        }
+    }
     private val genreAdapter : GenreAdapter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -164,9 +169,9 @@ class DetailMovie : BaseViewModelActivity<ActivityDetailMovieBinding, DetailView
 
     private fun checkAdult(adult: Boolean) {
         if (adult){
-            binding.tvDetailAdult.isVisible = true
+            binding.tvDetailAdult.text = "18+"
         } else {
-            binding.tvDetailAdult.isGone = true
+            binding.tvDetailAdult.text = "SU"
         }
     }
 

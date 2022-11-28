@@ -17,7 +17,7 @@ class TvShowDetailResponse(
     @field:SerializedName("name")
     val name: String,
 
-    @field:SerializedName("poster_path")
+    @field:SerializedName("backdrop_path")
     val posterPath: String,
 
     @field:SerializedName("overview")

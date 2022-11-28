@@ -9,13 +9,24 @@ import com.example.binarwatchflix.constant.CommonConstant
 import com.example.binarwatchflix.data.network.api.response.cast.CastItem
 import com.example.binarwatchflix.databinding.ItemCastPosterBinding
 
-class CastAdapter() : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
+class CastAdapter(var itemClick:( (CastItem) -> Unit)? = null) : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
     private var castList: MutableList<CastItem> = mutableListOf()
 
-    class CastViewHolder(private val binding: ItemCastPosterBinding) :
+    class CastViewHolder(
+        private val binding: ItemCastPosterBinding,
+        val itemClick: ((CastItem) -> Unit)?
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindView(item: CastItem) {
+            with(item) {
+                itemClick?.let {
+                    itemView.setOnClickListener {
+                        it(this)
+                    }
+                }
+            }
+
             if (item.profilePath.isNullOrEmpty()){
                 binding.ivCastPoster.setImageResource(R.drawable.ic_placeholder_user)
             } else {
@@ -29,7 +40,7 @@ class CastAdapter() : RecyclerView.Adapter<CastAdapter.CastViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CastViewHolder {
         val binding =  ItemCastPosterBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return CastViewHolder(binding)
+        return CastViewHolder(binding,itemClick)
     }
 
     override fun onBindViewHolder(holder: CastViewHolder, position: Int) {
