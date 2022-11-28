@@ -9,13 +9,15 @@ import com.example.binarwatchflix.R
 import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
 import com.example.binarwatchflix.databinding.ActivityHomeBinding
+import com.example.binarwatchflix.pkg.auth.AuthActivity
 import com.example.binarwatchflix.pkg.chat.ui.ChatActivity
+import com.example.binarwatchflix.pkg.home.HomeViewModel
 import com.example.binarwatchflix.pkg.home.adapter.HomeViewPagerAdapter
 import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::inflate) {
     companion object {
@@ -35,13 +37,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         )
     }
 
+    private val viewModel: HomeViewModel by viewModel()
+
     private val dialogLogout by lazy {
         MaterialAlertDialogBuilder(this@HomeActivity)
             .setMessage(getString(R.string.logout_text))
             .setNegativeButton(getString(R.string.lbl_no)) { dialog, _ ->
                 dialog.dismiss()
             }
-            .setPositiveButton(R.string.lbl_yes) { _, _ ->
+            .setPositiveButton(R.string.lbl_yes) { dialog, _ ->
+                logout()
+                dialog.dismiss()
                 preference.clearUserToken()
                 Intent(this@HomeActivity, OnboardingActivity::class.java).also {
                     startActivity(it)
@@ -68,7 +74,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
                 }
             }
 
-            fabChat.setOnClickListener { view ->
+            fabChat.setOnClickListener {
                 ChatActivity.startActivity(this@HomeActivity)
             }
 
@@ -89,7 +95,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         supportActionBar?.elevation = 0f
     }
 
-    fun refreshData() {
+    private fun refreshData() {
         initViewPagerAdapter()
         observeData()
     }
@@ -105,5 +111,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
 
     private fun observeData() {
 
+    }
+
+    private fun logout() {
+        viewModel.doLogout()
+        navigateToLogin()
+    }
+
+    private fun navigateToLogin() {
+        startActivity(Intent(this, AuthActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        })
     }
 }
