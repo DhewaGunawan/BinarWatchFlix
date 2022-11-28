@@ -15,6 +15,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".pkg.auth.AuthActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".pkg.splashscreen.ui.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -27,7 +34,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".pkg.onboarding.ui.OnboardingActivity"
             android:exported="false">
@@ -35,7 +41,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".pkg.home.ui.HomeActivity"
             android:exported="false">
@@ -43,6 +48,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".pkg.chat.ui.ChatActivity"
             android:exported="false">
