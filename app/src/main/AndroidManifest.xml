@@ -48,7 +48,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+        <activity
+            android:name=".pkg.detail.ui.DetailMovie"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".pkg.chat.ui.ChatActivity"
             android:exported="false">

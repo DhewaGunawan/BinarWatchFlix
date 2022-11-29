@@ -38,4 +38,5 @@
     <string name="text_empty_data">Empty Data</string>
     <string name="logo_watchflix_app">Logo Watchflix App</string>
     <string name="your_favorite_movie_app">Your favorite movie app</string>
+    <string name="title_cast">Cast</string>
 </resources>

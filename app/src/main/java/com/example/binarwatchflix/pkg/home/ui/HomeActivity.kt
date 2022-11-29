@@ -28,6 +28,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             })
         }
 
+        fun backToHomeActivity(context: Context) {
+            context.startActivity(Intent(context, HomeActivity::class.java).apply {
+            })
+
+        }
+
         private const val TAG = "HomeActivity"
         @StringRes
         private val TAB_TITLES = intArrayOf(
@@ -63,7 +69,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         supportActionBar?.hide()
         binding.apply {
             includeToolbar.apply {
-                titleName.text = preference.getUserToken()
                 btnLogout.setOnClickListener {
                     dialogLogout.show()
                 }
