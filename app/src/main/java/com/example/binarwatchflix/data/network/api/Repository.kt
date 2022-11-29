@@ -3,7 +3,10 @@ package com.example.binarwatchflix.data.network.api
 
 import com.example.binarwatchflix.base.BaseRepository
 import com.example.binarwatchflix.data.network.api.datasource.TmdbApiDataSource
+import com.example.binarwatchflix.data.network.api.response.cast.CastResponse
+import com.example.binarwatchflix.data.network.api.response.movie.MovieDetailResponse
 import com.example.binarwatchflix.data.network.api.response.movie.MoviesResponse
+import com.example.binarwatchflix.data.network.api.response.tvshow.TvShowDetailResponse
 import com.example.binarwatchflix.data.network.api.response.tvshow.TvShowsResponse
 import com.example.binarwatchflix.wrapper.Resource
 
@@ -15,6 +18,11 @@ interface Repository {
     suspend fun getTvShowOnTheAir() : Resource<TvShowsResponse>
     suspend fun getTvShowTopRated() : Resource<TvShowsResponse>
     suspend fun getTvShowPopular() : Resource<TvShowsResponse>
+    suspend fun getMovieDetail(movieId: String) : Resource<MovieDetailResponse>
+    suspend fun getTvShowDetail(tvShowId: String) : Resource<TvShowDetailResponse>
+
+    suspend fun getMovieCast(movieId: String) : Resource<CastResponse>
+    suspend fun getTvShowCast(tvShowId: String) : Resource<CastResponse>
 }
 
 class RepositoryImpl(private val networkDataSource: TmdbApiDataSource) : Repository, BaseRepository() {
@@ -40,6 +48,20 @@ class RepositoryImpl(private val networkDataSource: TmdbApiDataSource) : Reposit
 
     override suspend fun getTvShowPopular(): Resource<TvShowsResponse> {
         return doNetworkCall { networkDataSource.getTvShowPopular() }
+    }
+    override suspend fun getTvShowDetail(tvShowId: String): Resource<TvShowDetailResponse> {
+        return doNetworkCall { networkDataSource.getTvShowDetail(tvShowId) }
+    }
+
+    override suspend fun getMovieCast(movieId: String): Resource<CastResponse> {
+        return doNetworkCall { networkDataSource.getMovieCast(movieId) }
+    }
+
+    override suspend fun getTvShowCast(tvShowId: String): Resource<CastResponse> {
+        return doNetworkCall { networkDataSource.getTvShowCast(tvShowId) }
+    }
+    override suspend fun getMovieDetail(movieId: String): Resource<MovieDetailResponse> {
+        return doNetworkCall { networkDataSource.getMovieDetail(movieId) }
     }
 
 }
