@@ -21,4 +21,8 @@ class AuthViewModel(
             loginResult.postValue(userRepository.signInWithCredential(token))
         }
     }
+
+    fun doLogout() {
+        userRepository.logoutUser()
+    }
 }

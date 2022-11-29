@@ -10,10 +10,9 @@ import com.example.binarwatchflix.base.BaseActivity
 import com.example.binarwatchflix.data.localpref.UserPreference
 import com.example.binarwatchflix.databinding.ActivityHomeBinding
 import com.example.binarwatchflix.pkg.auth.AuthActivity
+import com.example.binarwatchflix.pkg.auth.AuthViewModel
 import com.example.binarwatchflix.pkg.chat.ui.ChatActivity
-import com.example.binarwatchflix.pkg.home.HomeViewModel
 import com.example.binarwatchflix.pkg.home.adapter.HomeViewPagerAdapter
-import com.example.binarwatchflix.pkg.onboarding.ui.OnboardingActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -29,6 +28,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             })
         }
 
+        fun backToHomeActivity(context: Context) {
+            context.startActivity(Intent(context, HomeActivity::class.java).apply {
+            })
+
+        }
+
         private const val TAG = "HomeActivity"
         @StringRes
         private val TAB_TITLES = intArrayOf(
@@ -37,7 +42,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         )
     }
 
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel: AuthViewModel by viewModel()
 
     private val dialogLogout by lazy {
         MaterialAlertDialogBuilder(this@HomeActivity)
@@ -48,10 +53,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
             .setPositiveButton(R.string.lbl_yes) { dialog, _ ->
                 logout()
                 dialog.dismiss()
-                preference.clearUserToken()
-                Intent(this@HomeActivity, OnboardingActivity::class.java).also {
-                    startActivity(it)
-                }
             }
     }
 
@@ -68,7 +69,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         supportActionBar?.hide()
         binding.apply {
             includeToolbar.apply {
-                titleName.text = preference.getUserToken()
                 btnLogout.setOnClickListener {
                     dialogLogout.show()
                 }
@@ -88,6 +88,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(ActivityHomeBinding::infl
         val homeViewPagerAdapter = HomeViewPagerAdapter(this)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         viewPager.adapter = homeViewPagerAdapter
+        viewPager.isUserInputEnabled = false
         val tabs: TabLayout = findViewById(R.id.tab_layout)
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])

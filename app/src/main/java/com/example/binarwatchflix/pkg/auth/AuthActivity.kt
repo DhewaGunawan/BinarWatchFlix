@@ -43,6 +43,7 @@ class AuthActivity :
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 try {
                     val account = task.getResult(ApiException::class.java)
+                    Log.d("Testing4", "account $account")
                     account.idToken?.let { firebaseAuthWithGoogle(it) }
                 } catch (e: ApiException) {
                     Log.w(TAG, "Google sign in failed", e)
@@ -104,6 +105,7 @@ class AuthActivity :
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
+        Log.d("Testing4", "signIn: $signInIntent")
         launcher.launch(signInIntent)
     }
 

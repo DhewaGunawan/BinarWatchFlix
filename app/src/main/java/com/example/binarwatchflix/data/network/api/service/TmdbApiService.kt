@@ -2,12 +2,16 @@ package com.example.binarwatchflix.data.network.api.service
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.binarwatchflix.BuildConfig
+import com.example.binarwatchflix.data.network.api.response.cast.CastResponse
+import com.example.binarwatchflix.data.network.api.response.movie.MovieDetailResponse
 import com.example.binarwatchflix.data.network.api.response.movie.MoviesResponse
+import com.example.binarwatchflix.data.network.api.response.tvshow.TvShowDetailResponse
 import com.example.binarwatchflix.data.network.api.response.tvshow.TvShowsResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
@@ -42,6 +46,34 @@ interface TmdbApiService {
     suspend fun getTvShowPopular(
         @Query("api_key") apiKey: String = BuildConfig.API_KEY,
     ): TvShowsResponse
+
+    @GET("movie/{movieId}")
+    suspend fun getDetailMovie(
+        @Path("movieId") movieId: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+
+    ) : MovieDetailResponse
+
+    @GET("tv/{tvShowId}")
+    suspend fun getDetailTvShow(
+        @Path("tvShowId") tvShowId: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY
+
+    ) : TvShowDetailResponse
+
+    @GET("tv/{tvShowId}/credits")
+    suspend fun getTvShowCast(
+        @Path("tvShowId") tvShowId: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+
+        ) : CastResponse
+
+    @GET("movie/{movieId}/credits")
+    suspend fun getMovieCast(
+        @Path("movieId") movieId: String,
+        @Query("api_key") apiKey: String = BuildConfig.API_KEY,
+
+        ) : CastResponse
 
 
     companion object {
