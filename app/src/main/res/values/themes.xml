@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/dark_blue_600</item>
         <item name="colorPrimaryVariant">@color/dark_blue_200</item>
         <item name="colorOnPrimary">@color/off_white_400</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/grey_600</item>
         <item name="colorSecondaryVariant">@color/grey_400</item>
@@ -22,5 +23,9 @@
     <style name="Home.Tablayout.Text" parent="Base.Widget.Design.TabLayout">
         <item name="android:textSize">18sp</item>
         <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
+        <item name="colorControlActivated">@color/off_white_400</item>
     </style>
 </resources>

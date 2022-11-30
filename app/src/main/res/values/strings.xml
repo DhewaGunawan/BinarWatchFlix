@@ -7,12 +7,36 @@
     <string name="text_onboard_desc_2">Entertain yourself like never before in your life</string>
 
     <!-- || HOME ACTIVITY || -->
+
     <string name="home_activity_text_greeting_topbar">Hello,</string>
     <string name="logout_text">Are you sure you want to log out ?</string>
     <string name="lbl_yes">Yes</string>
     <string name="lbl_no">No</string>
 
     <!-- NAME OF FILTER LIST -->
+
     <string name="filter_movies">Movies</string>
     <string name="filter_tv_show">TV Shows</string>
+
+    <!-- || HOME LIST FRAGMENT || -->
+    <string name="upcoming_movie">Upcoming</string>
+    <string name="now_playing_movie">Now Playing</string>
+    <string name="popular_movie">Popular</string>
+    <string name="on_air_tv_show">On Air</string>
+    <string name="top_rated_tv_show">Top Rated</string>
+    <string name="popular_tv_show">Popular</string>
+
+    <!-- CHAT -->
+    <string name="text_loading">Loading...</string>
+    <string name="text_empty_chat_title">No messages yet..</string>
+    <string name="text_empty_chat_description">You don’t have any conversation yet. An interesting chat starts with you. Go on!</string>
+    <string name="text_error_send_chat">Error when sending message :(</string>
+    <string name="text_input_chat_placeholder">Type...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_empty_data">Empty Data</string>
+    <string name="logo_watchflix_app">Logo Watchflix App</string>
+    <string name="your_favorite_movie_app">Your favorite movie app</string>
+    <string name="title_cast">Cast</string>
 </resources>
